@@ -1,15 +1,38 @@
+import axios from "axios";
+
 const Report = () => {
+
+    const handleSubmit = e => {
+        e.preventDefault();
+        const form = e.target;
+        const crimeType = form.crimeType.value;
+        const date = form.date.value;
+        const time = form.time.value;
+        const location = form.location.value;
+        const witness = form.witness.value;
+        const damage = form.damage.value;
+        const anonimus = form.anonimus.value;
+        const contact = form.contact.value;
+        const description = form.description.value;
+        const photo = form.photo.value;
+
+        const report = {crimeType, date, time, location, witness, damage, anonimus, description, contact, photo}
+        console.log(report)
+        axios.post('http://localhost:5000/reports', report)
+        .then(res => console.log(res.data))
+    }
+
+
   return (
     <div className="bg-sky-200 pb-10">
       <h2 className="text-center font-bold text-4xl pt-5">Repor Crime</h2>
-      <form className="card-body lg:w-3/4 mx-auto p-5 bg-base-200 rounded-lg my-10">
+      <form onSubmit={handleSubmit} className="card-body lg:w-3/4 mx-auto p-5 bg-base-200 rounded-lg my-10">
         <div className="flex gap-5">
           <div className="form-control w-1/2">
             <label className="label">
               <span className="label-text">Crime Types</span>
             </label>
             <select
-              id="crimeType "
               name="crimeType"
               className="input input-bordered"
             >
@@ -43,7 +66,7 @@ const Report = () => {
             </label>
             <input
               type="date"
-              placeholder="password"
+              name="date"
               className="input input-bordered"
               required
             />
@@ -56,7 +79,7 @@ const Report = () => {
             </label>
             <input
               type="time"
-              placeholder="email"
+              name="time"
               className="input input-bordered"
               required
             />
@@ -67,6 +90,7 @@ const Report = () => {
             </label>
             <input
               type="location"
+              name="location"
               placeholder="Location..."
               className="input input-bordered"
               required
@@ -79,7 +103,6 @@ const Report = () => {
               <span className="label-text ">Are You Witness?</span>
             </label>
             <select
-              id="witness "
               name="witness"
               className="input input-bordered"
             >
@@ -92,7 +115,6 @@ const Report = () => {
               <span className="label-text "> Damages</span>
             </label>
             <select
-              id="damage "
               name="damage"
               className="input input-bordered"
             >
@@ -112,7 +134,6 @@ const Report = () => {
               <span className="label-text ">Report Crime Anonimus?</span>
             </label>
             <select
-              id="anonimus "
               name="anonimus"
               className="input input-bordered"
             >
@@ -124,11 +145,11 @@ const Report = () => {
             <label className="label">
               <span className="label-text ">Contact Info <sub className="text-red-500">Optional</sub></span>
             </label>
-            <input
+            <input  
               type="text"
+              name="contact"
               placeholder="Contact Info..."
               className="input input-bordered"
-              required
             />
           </div>
         </div>
@@ -136,16 +157,20 @@ const Report = () => {
             <label className="label">
                 <span>Description</span>
             </label>
-            <textarea name="description" className="w-full input input-bordered h-20" placeholder="Description about crime..."></textarea>
+            <textarea 
+            name="description" 
+            className="w-full input input-bordered h-20" 
+            placeholder="Description about crime..."
+            ></textarea>
         </div>
         <div>
             <label className="label">
                 <span>Upload Image</span>
             </label>
-            <input type="file" className="file" />
+            <input type="file" name="photo" className="file" />
         </div>
         <div className="form-control mt-6">
-          <button className="btn btn-primary">Add Crime</button>
+          <button type="submit" className="btn btn-primary">Add Crime</button>
         </div>
       </form>
     </div>

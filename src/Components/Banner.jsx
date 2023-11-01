@@ -59,7 +59,7 @@ const Banner = () => {
                       1000,
                     ]}
                     speed={50}
-                    style={{ fontSize: "3em", fontWeight: "700" }}
+                    style={{ fontSize: "3em", fontWeight: "700", borderLeft: '15px solid #FF3611', paddingLeft: '10px'}}
                     repeat={Infinity}
                   />
                 </div>
@@ -109,7 +109,7 @@ const Banner = () => {
                       1000,
                     ]}
                     speed={50}
-                    style={{ fontSize: "3em", fontWeight: "700" }}
+                    style={{ fontSize: "3em", fontWeight: "700", borderLeft: '15px solid #FF3611', paddingLeft: '10px' }}
                     repeat={Infinity}
                   />
                 </div>

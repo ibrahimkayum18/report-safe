@@ -28,12 +28,14 @@ const Route = createBrowserRouter([
                 element:<IncidentMap></IncidentMap>
             },
             {
-                path:'/safety-tips',
-                element:<SafetyTips></SafetyTips>
+                path:'/safety',
+                element:<SafetyTips></SafetyTips>,
+                loader: () => fetch('http://localhost:5000/safety')
             },
             {
                 path:'/your-reports',
-                element:<YourReports></YourReports>
+                element:<YourReports></YourReports>,
+                loader: () => fetch('http://localhost:5000/reports')
             },
             {
                 path:'/contact',

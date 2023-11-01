@@ -1,0 +1,47 @@
+[
+    {
+      "category": "Personal Safety",
+      "tips": [
+        "Always be aware of your surroundings, especially in unfamiliar areas.",
+        "Trust your instincts and avoid risky situations or people.",
+        "When walking or jogging alone, choose well-lit paths and vary your route."
+      ],
+      "imageURL": "https://i.ibb.co/sv6V04G/security-3245627-1280.jpg"
+    },
+    {
+      "category": "Home Safety",
+      "tips": [
+        "Lock all doors and windows when you're at home or away.",
+        "Consider installing a security system to protect your home.",
+        "Use timers for lights and appliances to create the appearance of occupancy when you're not home."
+      ],
+      "imageURL": "https://i.ibb.co/p2JJfKK/key-2114046-1280.jpg"
+    },
+    {
+      "category": "Online Safety",
+      "tips": [
+        "Protect your personal information online by using strong, unique passwords.",
+        "Be cautious of phishing scams and never click on suspicious links or download unknown attachments.",
+        "Report any instances of cyberbullying or online harassment to the appropriate authorities or platforms."
+      ],
+      "imageURL": "https://i.ibb.co/m4ht8v4/cyber-security-3400657-1280.jpg"
+    },
+    {
+      "category": "Travel Safety",
+      "tips": [
+        "Keep your belongings secure when traveling and avoid displaying valuable items.",
+        "Stay cautious in unfamiliar places and avoid risky areas, especially at night.",
+        "Carry emergency contact numbers and know the location of your country's embassy when traveling internationally."
+      ],
+      "imageURL": "https://i.ibb.co/FhZ5z2b/high-angle-luggage-blue-background.jpg"
+    },
+    {
+      "category": "Self-Defense Techniques",
+      "tips": [
+        "Learn basic self-defense techniques, such as how to break free from a wrist grab.",
+        "Consider enrolling in a self-defense class to build your skills and confidence.",
+        "Remember that physical confrontation should be a last resort; your safety is the top priority."
+      ],
+      "imageURL": "https://i.ibb.co/kKXH6xV/medium-shot-young-boy-boxing.jpg"
+    }
+  ]

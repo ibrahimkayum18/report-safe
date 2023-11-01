@@ -28,7 +28,7 @@ const NavBar = () => {
         Incident-Map
       </NavLink>
       <NavLink
-        to="/safety-tips"
+        to="/safety"
         className={({ isActive, isPending }) =>
           isPending ? "pending " : isActive ? "active underline font-bold text-red-600" : ""
         }
