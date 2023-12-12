@@ -8,6 +8,7 @@ import SafetyTips from "./Pages/SafetyTips/SafetyTips";
 import YourReports from "./Pages/YourReports/YourReports";
 import ContactUs from "./Pages/ContactUs/ContactUs";
 import Register from "./Pages/Register/Register";
+import PrivateRouter from "./Providers/PrivateRoute";
 
 
 const Route = createBrowserRouter([
@@ -21,7 +22,7 @@ const Route = createBrowserRouter([
             },
             {
                 path:'/report',
-                element:<Report></Report>
+                element:<PrivateRouter><Report></Report></PrivateRouter>
             },
             {
                 path:'/incident-map',

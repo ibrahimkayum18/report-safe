@@ -32,6 +32,7 @@ const Banner = () => {
       >
         <SwiperSlide>
           <div
+          data-aos="fade-up"
             className="md:h-screen w-full"
             style={{
               backgroundImage:
@@ -73,7 +74,7 @@ const Banner = () => {
                     to a more secure future."
                   </p>
                   <Link to={'/report'}>
-                    <button className="btn btn-primary">Report The Crime Now</button>
+                    <button  className="btn btn-primary">Report The Crime Now</button>
                   </Link>
                 </div>
               </div>

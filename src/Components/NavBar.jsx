@@ -1,12 +1,26 @@
+import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../Providers/AuthProviders";
+import toast from "react-hot-toast";
 
 const NavBar = () => {
+  const { user, logOut } = useContext(AuthContext);
+  const handleLogOut = () => {
+    logOut()
+    .then(() => {
+      toast.success('Log Out Successfully')
+    })
+  }
   const navLinks = (
     <>
       <NavLink
         to="/"
         className={({ isActive, isPending }) =>
-          isPending ? "pending " : isActive ? "active underline font-bold text-red-600" : ""
+          isPending
+            ? "pending "
+            : isActive
+            ? "active underline font-bold text-red-600"
+            : ""
         }
       >
         Home
@@ -14,7 +28,11 @@ const NavBar = () => {
       <NavLink
         to="/report"
         className={({ isActive, isPending }) =>
-          isPending ? "pending " : isActive ? "active underline font-bold text-red-600" : ""
+          isPending
+            ? "pending "
+            : isActive
+            ? "active underline font-bold text-red-600"
+            : ""
         }
       >
         Report
@@ -22,7 +40,11 @@ const NavBar = () => {
       <NavLink
         to="/incident-map"
         className={({ isActive, isPending }) =>
-          isPending ? "pending " : isActive ? "active underline font-bold text-red-600" : ""
+          isPending
+            ? "pending "
+            : isActive
+            ? "active underline font-bold text-red-600"
+            : ""
         }
       >
         Incident-Map
@@ -30,7 +52,11 @@ const NavBar = () => {
       <NavLink
         to="/safety"
         className={({ isActive, isPending }) =>
-          isPending ? "pending " : isActive ? "active underline font-bold text-red-600" : ""
+          isPending
+            ? "pending "
+            : isActive
+            ? "active underline font-bold text-red-600"
+            : ""
         }
       >
         Safety Tips
@@ -38,7 +64,11 @@ const NavBar = () => {
       <NavLink
         to="/Your-reports"
         className={({ isActive, isPending }) =>
-          isPending ? "pending " : isActive ? "active underline font-bold text-red-600" : ""
+          isPending
+            ? "pending "
+            : isActive
+            ? "active underline font-bold text-red-600"
+            : ""
         }
       >
         Your Reports
@@ -46,7 +76,11 @@ const NavBar = () => {
       <NavLink
         to="/contact"
         className={({ isActive, isPending }) =>
-          isPending ? "pending " : isActive ? "active underline font-bold text-red-600" : ""
+          isPending
+            ? "pending "
+            : isActive
+            ? "active underline font-bold text-red-600"
+            : ""
         }
       >
         Contact Us
@@ -80,22 +114,45 @@ const NavBar = () => {
             {navLinks}
           </ul>
         </div>
-        
-        <Link to={'/'}>
-            <div className="flex items-center gap-2">
-                <img className="h-16 w-16 rounded-full" src="https://i.ibb.co/VYrYfPY/images-1.jpg" alt="" />
-                <h2 className="text-3xl font-bold">ReportSafe</h2>
-            </div>
+
+        <Link to={"/"}>
+          <div className="flex items-center gap-2">
+            <img
+              className="h-16 w-16 rounded-full"
+              src="https://i.ibb.co/VYrYfPY/images-1.jpg"
+              alt=""
+            />
+            <h2 className="text-3xl font-bold">ReportSafe</h2>
+          </div>
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1 flex gap-5">{navLinks}</ul>
       </div>
-      <div className="navbar-end">
-        <Link to={'/login'}>
+      {!user ? (
+        <div className="navbar-end">
+          <Link to={"/login"}>
             <button className="btn btn-primary">Log In</button>
-        </Link>
-      </div>
+          </Link>
+        </div>
+      ) : (
+        <div className="dropdown dropdown-end">
+          <div tabIndex={0} role="button" className=" ml-3">
+            <img className="w-12 h-12 rounded-full" src={user.photoURL} alt="" />
+          </div>
+          <ul
+            tabIndex={0}
+            className="dropdown-content z-[50] menu p-2 shadow bg-base-100 rounded-box w-52"
+          >
+            <li>
+              <a>{user.displayName}</a>
+            </li>
+            <li>
+              <button onClick={handleLogOut}>Log Out</button>
+            </li>
+          </ul>
+        </div>
+      )}
     </div>
   );
 };

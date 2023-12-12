@@ -24,11 +24,11 @@ const Report = () => {
 
 
   return (
-    <div className="bg-sky-200 pb-10">
+    <div className="bg-sky-200 pb-10" data-aos="fade-up">
       <h2 className="text-center font-bold text-4xl pt-5">Repor Crime</h2>
       <form onSubmit={handleSubmit} className="card-body lg:w-3/4 mx-auto p-5 bg-base-200 rounded-lg my-10">
         <div className="flex gap-5">
-          <div className="form-control w-1/2">
+          <div className="form-control w-1/2" data-aos="fade-right">
             <label className="label">
               <span className="label-text">Crime Types</span>
             </label>
@@ -60,7 +60,7 @@ const Report = () => {
               </option>
             </select>
           </div>
-          <div className="form-control w-1/2">
+          <div className="form-control w-1/2" data-aos="fade-left">
             <label className="label">
               <span className="label-text">Date</span>
             </label>
@@ -73,7 +73,7 @@ const Report = () => {
           </div>
         </div>
         <div className="flex gap-5">
-          <div className="form-control w-1/2">
+          <div className="form-control w-1/2" data-aos="fade-right">
             <label className="label">
               <span className="label-text">Time</span>
             </label>
@@ -84,7 +84,7 @@ const Report = () => {
               required
             />
           </div>
-          <div className="form-control w-1/2">
+          <div className="form-control w-1/2" data-aos="fade-left">
             <label className="label">
               <span className="label-text ">Location</span>
             </label>
@@ -98,7 +98,7 @@ const Report = () => {
           </div>
         </div>
         <div className="flex gap-5">
-          <div className="form-control w-1/2">
+          <div className="form-control w-1/2" data-aos="fade-right">
             <label className="label">
               <span className="label-text ">Are You Witness?</span>
             </label>
@@ -110,7 +110,7 @@ const Report = () => {
               <option value="no">No</option>
               </select>
           </div>
-          <div className="form-control w-1/2">
+          <div className="form-control w-1/2" data-aos="fade-left">
             <label className="label">
               <span className="label-text "> Damages</span>
             </label>
@@ -129,7 +129,7 @@ const Report = () => {
           </div>
         </div>
         <div className="flex gap-5">
-          <div className="form-control w-1/2">
+          <div className="form-control w-1/2" data-aos="fade-right">
             <label className="label">
               <span className="label-text ">Report Crime Anonimus?</span>
             </label>
@@ -141,7 +141,7 @@ const Report = () => {
               <option value="no">No</option>
               </select>
           </div>
-          <div className="form-control w-1/2">
+          <div className="form-control w-1/2" data-aos="fade-left">
             <label className="label">
               <span className="label-text ">Contact Info <sub className="text-red-500">Optional</sub></span>
             </label>
@@ -153,7 +153,7 @@ const Report = () => {
             />
           </div>
         </div>
-        <div>
+        <div data-aos="fade-up">
             <label className="label">
                 <span>Description</span>
             </label>
