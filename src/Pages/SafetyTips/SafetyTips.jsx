@@ -1,15 +1,19 @@
 import { useLoaderData } from "react-router-dom";
 import SafetyCart from "./SafetyCart";
+import useSafetyTips from "../../Hooks/useSafetyTips";
 
 const SafetyTips = () => {
-    const safety = useLoaderData()
+    const [SafetyTips, refetch] = useSafetyTips()
     return (
-        <div className="lg:grid lg:grid-cols-4 gap-6 h-screen">
-            <div className="lg:col-span-1 bg-blue-300">
+        <div className="w-11/12 lg:w-10/12 mx-auto">
+            <div>
+                <div className="    ">
+                    <h2 className="pl-6 border-l-8 border-sky-400 text-4xl font-bold">Safety Tips For Everyone</h2>
+                </div>
             </div>
-            <div className="lg:col-span-3 bg-gray-300">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
                 {
-                    safety.map(safe => <SafetyCart 
+                    SafetyTips.map(safe => <SafetyCart 
                     key={safe._id}
                     safe={safe}
                     ></SafetyCart>)

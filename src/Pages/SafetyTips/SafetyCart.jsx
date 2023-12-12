@@ -1,24 +1,24 @@
+import { FaArrowRight } from "react-icons/fa";
+
+
 const SafetyCart = ({ safe }) => {
-  console.log(safe);
   const { category, imageURL, tips } = safe || {};
   return (
-    <div className="flex bg-base-100 shadow-xl">
-      <figure>
+    <div className=" " data-aos="flip-left">
+      <div className="h-[250px]">
         <img
-        className="w-[400px] h-[300px]"
+        data-aos="zoom-in"
+        className="w-full h-full"
           src={imageURL}
           alt="Movie"
         />
-      </figure>
-      <div className="card-body">
-        <h2 className="card-title">{category}</h2>
+      </div>
+      <div className="p-5" >
+        <h2 className="card-title" data-aos="fade-right">{category}</h2>
         <div>
             {
-                tips.map((tip, index) => <p key={index}>{tip}</p>)
+                tips.map((tip, index) => <p key={index} className="flex gap-1" data-aos="fade-left"><FaArrowRight className="pt-2"/>{tip}</p>)
             }
-        </div>
-        <div className="card-actions justify-end">
-          <button className="btn btn-primary">Watch</button>
         </div>
       </div>
     </div>

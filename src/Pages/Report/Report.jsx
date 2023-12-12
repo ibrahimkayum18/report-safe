@@ -1,7 +1,11 @@
 import axios from "axios";
+import useAxiosPublic from "../../Hooks/useAxiosPublic";
 
+
+const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
+const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`
 const Report = () => {
-
+    const axiosPublic = useAxiosPublic();
     const handleSubmit = e => {
         e.preventDefault();
         const form = e.target;
@@ -18,8 +22,16 @@ const Report = () => {
 
         const report = {crimeType, date, time, location, witness, damage, anonimus, description, contact, photo}
         console.log(report)
-        axios.post('http://localhost:5000/reports', report)
-        .then(res => console.log(res.data))
+
+        const res = axiosPublic.post(image_hosting_api,photo, {
+          headers:{
+            'content-type' : 'multipart/form-data'
+          }
+        })
+        console.log(res.data);
+
+        // axios.post('http://localhost:5000/reports', report)
+        // .then(res => console.log(res.data))
     }
 
 
