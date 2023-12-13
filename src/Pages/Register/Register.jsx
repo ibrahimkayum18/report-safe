@@ -4,8 +4,10 @@ import { AuthContext } from "../../Providers/AuthProviders";
 import { updateProfile } from "firebase/auth";
 import auth from "../../../firebase.config";
 import Swal from "sweetalert2";
+import useAxiosPublic from "../../Hooks/useAxiosPublic";
 
 const Register = () => {
+  const axiosPublic = useAxiosPublic();
   const { createUser } = useContext(AuthContext);
   const navigate = useNavigate();
   const handleRegister = (e) => {
@@ -20,14 +22,21 @@ const Register = () => {
         displayName: name,
         photoURL: photo,
       }).then(() => {
-        Swal.fire({
-          position: "top-end",
-          icon: "success",
-          title: "User Created successfully",
-          showConfirmButton: false,
-          timer: 1500,
+        const userInfo = {
+          email: email,
+          name: name,
+          photo: photo,
+        };
+        axiosPublic.post("/users", userInfo).then(() => {
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "User Created successfully",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+          navigate("/");
         });
-        navigate('/')
       });
     });
   };

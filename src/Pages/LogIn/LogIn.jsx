@@ -3,12 +3,13 @@ import img from "./../../assets/a.svg";
 import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProviders";
 import Swal from "sweetalert2";
+import useAxiosPublic from "../../Hooks/useAxiosPublic";
 
 const LogIn = () => {
     const {login, googleLogin} = useContext(AuthContext);
     const location = useLocation();
     const navigate = useNavigate();
-    console.log(location);
+    const axiosPublic = useAxiosPublic();
   const handleLogIn = (e) => {
     e.preventDefault();
     const email = e.target.email.value;
@@ -28,15 +29,25 @@ const LogIn = () => {
   };
   const handleGoogleLogIn = () => {
     googleLogin()
-    .then(() => {
-        Swal.fire({
+    .then((res) => {
+      console.log(res.user);
+        const userInfo = {
+          email: res.user?.email,
+          name:res.user?.displayName,
+          photo: res.user?.photoURL
+        }
+        axiosPublic.post('/users', userInfo)
+        .then((res) => {
+          console.log(res.data);
+          Swal.fire({
             position: "top-end",
             icon: "success",
             title: "Log In successfully",
             showConfirmButton: false,
             timer: 1500,
           });
-          navigate(location?.state ? location.state : '/')
+          navigate(location?.state ? location.state : '/') 
+        })
     })
   }
   return (

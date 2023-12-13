@@ -25,30 +25,7 @@ const NavBar = () => {
       >
         Home
       </NavLink>
-      <NavLink
-        to="/report"
-        className={({ isActive, isPending }) =>
-          isPending
-            ? "pending "
-            : isActive
-            ? "active underline font-bold text-red-600"
-            : ""
-        }
-      >
-        Report
-      </NavLink>
-      <NavLink
-        to="/incident-map"
-        className={({ isActive, isPending }) =>
-          isPending
-            ? "pending "
-            : isActive
-            ? "active underline font-bold text-red-600"
-            : ""
-        }
-      >
-        Incident-Map
-      </NavLink>
+      
       <NavLink
         to="/safety"
         className={({ isActive, isPending }) =>
@@ -62,7 +39,7 @@ const NavBar = () => {
         Safety Tips
       </NavLink>
       <NavLink
-        to="/Your-reports"
+        to="/dashboard"
         className={({ isActive, isPending }) =>
           isPending
             ? "pending "
@@ -71,7 +48,7 @@ const NavBar = () => {
             : ""
         }
       >
-        Your Reports
+        Dashboard
       </NavLink>
       <NavLink
         to="/contact"
@@ -136,7 +113,8 @@ const NavBar = () => {
           </Link>
         </div>
       ) : (
-        <div className="dropdown dropdown-end">
+        <div className="navbar-end">
+          <div className="dropdown dropdown-end ">
           <div tabIndex={0} role="button" className=" ml-3">
             <img className="w-12 h-12 rounded-full" src={user.photoURL} alt="" />
           </div>
@@ -151,6 +129,7 @@ const NavBar = () => {
               <button onClick={handleLogOut}>Log Out</button>
             </li>
           </ul>
+        </div>
         </div>
       )}
     </div>

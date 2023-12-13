@@ -3,12 +3,21 @@ import Main from "./Layout/Main";
 import Home from "./Pages/Home/Home";
 import Report from "./Pages/Report/Report";
 import LogIn from "./Pages/LogIn/LogIn";
-import IncidentMap from "./Pages/IncidentMap/IncidentMap";
 import SafetyTips from "./Pages/SafetyTips/SafetyTips";
 import YourReports from "./Pages/YourReports/YourReports";
 import ContactUs from "./Pages/ContactUs/ContactUs";
 import Register from "./Pages/Register/Register";
 import PrivateRouter from "./Providers/PrivateRoute";
+import Dashboard from "./Pages/Dashboard/Dashboard";
+import UserProfile from "./Pages/Dashboard/UserPanel/UserProfile/UserProfile";
+import UserReviews from "./Pages/Dashboard/UserPanel/Review/UserReviews";
+import AdminProfile from "./Pages/Dashboard/AdminPanel/AdminProfile/AdminProfile";
+import ManageUsers from "./Pages/Dashboard/AdminPanel/ManageUsers/ManageUsers";
+import ManageReports from "./Pages/Dashboard/AdminPanel/ManageReports/ManageReports";
+import ManageReviews from "./Pages/Dashboard/AdminPanel/ManageReviews/ManageReviews";
+import SolvedCase from "./Pages/Dashboard/AdminPanel/SolvedCase/SolvedCase";
+import AddSuccessStory from "./Pages/Dashboard/AdminPanel/AddSuccessStory/AddSuccessStory";
+import AdminRoute from "./Providers/AdminRoute";
 
 
 const Route = createBrowserRouter([
@@ -21,22 +30,8 @@ const Route = createBrowserRouter([
                 element: <Home></Home>
             },
             {
-                path:'/report',
-                element:<PrivateRouter><Report></Report></PrivateRouter>
-            },
-            {
-                path:'/incident-map',
-                element:<IncidentMap></IncidentMap>
-            },
-            {
                 path:'/safety',
                 element:<SafetyTips></SafetyTips>,
-                loader: () => fetch('http://localhost:5000/safety')
-            },
-            {
-                path:'/your-reports',
-                element:<YourReports></YourReports>,
-                loader: () => fetch('http://localhost:5000/reports')
             },
             {
                 path:'/contact',
@@ -50,6 +45,54 @@ const Route = createBrowserRouter([
                 path:'/register',
                 element:<Register></Register>
             },
+        ]
+    },
+    {
+        path:'dashboard',
+        element:<PrivateRouter><Dashboard /></PrivateRouter>,
+        children:[
+            {
+                path:'user-profile',
+                element:<UserProfile />
+            },
+            {
+                path:'add-report',
+                element:<Report />
+            },
+            {
+                path:'your-report',
+                element:<YourReports />
+            },
+            {
+                path:'review',
+                element:<UserReviews />
+            },
+
+            // Admin Routes
+            {
+                path:'admin-profile',
+                element:<AdminRoute><AdminProfile /></AdminRoute>
+            },
+            {
+                path:'manage-users',
+                element:<AdminRoute><ManageUsers /></AdminRoute>
+            },
+            {
+                path:'manage-reports',
+                element:<AdminRoute><ManageReports /></AdminRoute>
+            },
+            {
+                path:'reviews',
+                element:<AdminRoute><ManageReviews /></AdminRoute>
+            },
+            {
+                path:'solved-case',
+                element:<AdminRoute><SolvedCase /></AdminRoute>
+            },
+            {
+                path:'add-success-story',
+                element:<AdminRoute><AddSuccessStory /></AdminRoute>
+            }
         ]
     }
 ])

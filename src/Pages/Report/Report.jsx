@@ -36,9 +36,9 @@ const Report = () => {
 
 
   return (
-    <div className="bg-sky-200 pb-10" data-aos="fade-up">
-      <h2 className="text-center font-bold text-4xl pt-5">Repor Crime</h2>
-      <form onSubmit={handleSubmit} className="card-body lg:w-3/4 mx-auto p-5 bg-base-200 rounded-lg my-10">
+    <div className="bg-sky-200 py-5" data-aos="fade-up">
+      <h2 className="ml-10 font-bold text-4xl mt-5 border-l-8 pl-5 border-orange-500">Report Crime</h2>
+      <form onSubmit={handleSubmit} className="card-body  mx-auto p-5 bg-base-200 rounded-lg my-10">
         <div className="flex gap-5">
           <div className="form-control w-1/2" data-aos="fade-right">
             <label className="label">
