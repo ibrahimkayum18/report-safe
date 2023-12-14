@@ -1,14 +1,21 @@
 import axios from "axios";
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
+import toast from "react-hot-toast";
+import { useContext } from "react";
+import { AuthContext } from "../../Providers/AuthProviders";
 
 
 const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`
 const Report = () => {
+  const {user} = useContext(AuthContext)
     const axiosPublic = useAxiosPublic();
     const handleSubmit = e => {
         e.preventDefault();
         const form = e.target;
+        const email = user.email;
+        const name = user.displayName;
+        const u_photo = user.photoURL;
         const crimeType = form.crimeType.value;
         const date = form.date.value;
         const time = form.time.value;
@@ -20,7 +27,7 @@ const Report = () => {
         const description = form.description.value;
         const photo = form.photo.value;
 
-        const report = {crimeType, date, time, location, witness, damage, anonimus, description, contact, photo}
+        const report = {crimeType,email,name, u_photo, date, time, location, witness, damage, anonimus, description, contact, photo, confirmed:'pending'}
         console.log(report)
 
         const res = axiosPublic.post(image_hosting_api,photo, {
@@ -29,9 +36,13 @@ const Report = () => {
           }
         })
         console.log(res.data);
-
-        // axios.post('http://localhost:5000/reports', report)
-        // .then(res => console.log(res.data))
+        axiosPublic.post('/reports', report)
+        .then(res => {
+          if(res.data.insertedId){
+            toast.success('Report Addeded successfully')
+            
+          }
+        })
     }
 
 

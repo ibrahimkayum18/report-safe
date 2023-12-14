@@ -1,25 +1,72 @@
-
+import toast from "react-hot-toast";
+import usePosts from "../../Hooks/usePosts";
+import { BiLike } from "react-icons/bi";
+import useAxiosSecure from "../../Hooks/useAxiosSecure";
+import { useState } from "react";
+import useAxiosPublic from "../../Hooks/useAxiosPublic";
 
 const Success = () => {
-    return (
-        <div className="my-14 px-5 lg:px-14">
-            <h2 className="text-5xl font-bold text-center text-[#FF3611]">Success Stories</h2>
-            <div className="lg:grid grid-cols-3 pt-8 gap-6">
-                <div className="col-span-1">
-                    <img src="https://i.ibb.co/d0v4MC0/police-2122394-1280.jpg" alt="" />
+  const [posts, refetch] = usePosts();
+
+  return (
+    <div className="my-14 px-5 lg:px-24">
+      <h2 className="text-5xl font-bold text-center text-[#FF3611]">
+        Success Stories
+      </h2>
+      <div className="lg:grid grid-cols-3 pt-8 gap-6">
+        {posts.map((post) => (
+          <div
+            key={post._id}
+            className="bg-gray-200 p-7 rounded-lg space-y-2 overflow-hidden"
+            data-aos="fade-left"
+          >
+            <h2>Case name: {post.crimeType}</h2>
+            <h2>Occurence Location: {post.location}</h2>
+            <h2>Occurence Time: {post.time}</h2>
+            <h2>Occurence Date: {post.date}</h2>
+            <h2 className="text-green-600">Case Solved</h2>
+            <h2>Thanks to: {post.name ? post.name : "annonymus"}</h2>
+            {/* You can open the modal using document.getElementById('ID').showModal() method */}
+            <button
+              data-aos="fade-up"
+              className="btn btn-sm bg-orange-400 text-white"
+              onClick={() => document.getElementById("my_modal_3").showModal()}
+            >
+              Give Review
+            </button>
+            <dialog id="my_modal_3" className="modal">
+              <div className="modal-box">
+                <form method="dialog">
+                  {/* if there is a button in form, it will close the modal */}
+                  <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
+                    ✕
+                  </button>
+                </form>
+                <div>
+                  <form>
+                    <h2>Give yyour vaaluable review on {post.crimeType}</h2>
+                    <div data-aos="fade-up">
+                      <label className="label">
+                        <span>Review</span>
+                      </label>
+                      <textarea
+                        name="description"
+                        className="w-full input input-bordered h-20"
+                        placeholder="Review about crime..."
+                      ></textarea>
+                    </div>
+                    <div className="my-5 text-center">
+                        <button className="btn btn-primary w-full">Post</button>
+                    </div>
+                  </form>
                 </div>
-                <div className="col-span-2">
-                    <h2 className="text-3xl font-bold">We Appriciate You: <span className="text-[#FF3611]"> Annonymus</span></h2>
-                    <p className="pt-7 text-xl">
-                    Your courage, vigilance, and quick thinking played a pivotal role in the successful resolution of this case. Your willingness to step forward and provide valuable information not only helped us apprehend a criminal but also significantly contributed to enhancing the safety and security of our community.
-                    </p>
-                    <p className="pt-7 text-xl">
-                        Due to Your help we are able to catch the <span>murderer</span> who secretle staying in your area. He is a ver dangerous man to live as neighborhoods. Thank You for your support.
-                    </p>
-                </div>
-            </div>
-        </div>
-    );
+              </div>
+            </dialog>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
 };
 
 export default Success;

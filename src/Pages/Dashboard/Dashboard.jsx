@@ -11,13 +11,35 @@ import {
 } from "react-icons/md";
 import { TbReportSearch } from "react-icons/tb";
 import useAdmin from "../../Hooks/useAdmin";
+import { useContext } from "react";
+import { AuthContext } from "../../Providers/AuthProviders";
+import toast from "react-hot-toast";
 
 const Dashboard = () => {
   const [isAdmin] = useAdmin();
+  const {logOut} = useContext(AuthContext);
+
+  const handleLogOut = () => {
+    logOut()
+    .then(() => {
+      toast.success('Log Out Successfull')
+    })
+  }
+
+
+
   const navLinks = (
     <>
       {isAdmin ? (
         <>
+        <div className="flex items-center gap-2 mb-5">
+            <img
+              className="h-16 w-16 rounded-full"
+              src="https://i.ibb.co/VYrYfPY/images-1.jpg"
+              alt=""
+            />
+            <h2 className="text-3xl font-bold">ReportSafe</h2>
+          </div>
             <li>
             <NavLink to={"/dashboard/admin-profile"}>
               <span className="">
@@ -69,6 +91,14 @@ const Dashboard = () => {
         </>
       ) : (
         <>
+        <div className="flex items-center gap-2 mb-5">
+            <img
+              className="h-16 w-16 rounded-full"
+              src="https://i.ibb.co/VYrYfPY/images-1.jpg"
+              alt=""
+            />
+            <h2 className="text-3xl font-bold">ReportSafe</h2>
+          </div>
           <li>
             <NavLink to={"/dashboard/user-profile"}>
               <span className="">
@@ -129,6 +159,15 @@ const Dashboard = () => {
             Contact Us
           </Link>
         </li>
+        <li onClick={handleLogOut}>
+          <Link to={"/"}>
+            <span className="">
+              <FaUser />
+            </span>{" "}
+            Log Out
+          </Link>
+        </li>
+        
       </div>
     </>
   );
@@ -151,7 +190,7 @@ const Dashboard = () => {
             aria-label="close sidebar"
             className="drawer-overlay"
           ></label>
-          <ul className="menu p-4 w-80 min-h-full text-lg bg-orange-500 text-white">
+          <ul className="menu p-4 w-80 min-h-full text-lg bg-gray-200 text-black">
             {navLinks}
           </ul>
         </div>
