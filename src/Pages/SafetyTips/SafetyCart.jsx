@@ -14,10 +14,10 @@ const SafetyCart = ({ safe }) => {
         />
       </div>
       <div className="p-5" >
-        <h2 className="card-title" data-aos="fade-right">{category}</h2>
+        <h2 className="card-title overflow-hidden" data-aos="fade-right">{category}</h2>
         <div>
             {
-                tips.map((tip, index) => <p key={index} className="flex gap-1" data-aos="fade-left"><FaArrowRight className="pt-2"/>{tip}</p>)
+                tips.map((tip, index) => <p key={index} className="flex gap-1 overflow-hidden" data-aos="fade-left"><FaArrowRight className="pt-2"/>{tip}</p>)
             }
         </div>
       </div>

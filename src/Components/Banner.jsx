@@ -33,7 +33,7 @@ const Banner = () => {
         <SwiperSlide>
           <div
           data-aos="fade-up"
-            className="md:h-screen w-full"
+            className="md:h-screen w-full overflow-hidden"
             style={{
               backgroundImage:
                 "url(https://i.ibb.co/jVBT5HL/crime-1862312-1920.jpg)",
