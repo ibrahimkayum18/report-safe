@@ -89,10 +89,6 @@ const Route = createBrowserRouter([
                 path:'solved-case',
                 element:<AdminRoute><SolvedCase /></AdminRoute>
             },
-            {
-                path:'add-success-story',
-                element:<AdminRoute><AddSuccessStory /></AdminRoute>
-            }
         ]
     }
 ])

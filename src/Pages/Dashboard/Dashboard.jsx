@@ -73,14 +73,6 @@ const Dashboard = () => {
             </NavLink>
           </li>
             <li>
-            <NavLink to={"/dashboard/add-success-story"}>
-              <span className="">
-                <FaDiagramSuccessor  />
-              </span>{" "}
-              Add Success Story
-            </NavLink>
-          </li>
-            <li>
             <NavLink to={"/dashboard/solved-case"}>
               <span className="">
                 <GiConfirmed  />
