@@ -5,7 +5,7 @@ import Success from "./Success";
 
 const Home = () => {
     return (
-        <div>
+        <div className="overflow-hidden">
             <Banner></Banner>
             <AboutHome></AboutHome>
             <Success></Success>

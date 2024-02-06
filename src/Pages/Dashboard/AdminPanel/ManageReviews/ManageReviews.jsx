@@ -33,14 +33,14 @@ const ManageReviews = () => {
   };
 
   return (
-    <div>
+    <div className="-z-40">
       <h2 className="text-4xl ml-6 pl-5 border-l-8 border-orange-500 mt-5">
         Manage Reviews
       </h2>
       <div className="divider"></div>
       <div className="overflow-x-auto">
         {reviews.length > 0 ? (
-          <table className="table">
+          <table className="table -z-50">
             {/* head */}
             <thead>
               <tr>

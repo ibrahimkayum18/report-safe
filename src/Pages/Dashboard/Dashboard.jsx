@@ -165,16 +165,23 @@ const Dashboard = () => {
   );
   return (
     <div className="flex flex-col lg:flex-row">
-      <div className="drawer lg:drawer-open w-80">
+      <div className="drawer lg:drawer-open lg:w-80">
         <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content flex flex-col items-center justify-center">
           {/* Page content here */}
+          <div className="flex justify-between px-5 items-center pt-1 w-full">
+          <img
+              className="h-16 w-16 rounded-full"
+              src="https://i.ibb.co/VYrYfPY/images-1.jpg"
+              alt=""
+            />
           <label
             htmlFor="my-drawer-2"
-            className="btn btn-primary drawer-button lg:hidden"
+            className="text-3xl drawer-button lg:hidden"
           >
             <GiHamburgerMenu />
           </label>
+          </div>
         </div>
         <div className="drawer-side">
           <label

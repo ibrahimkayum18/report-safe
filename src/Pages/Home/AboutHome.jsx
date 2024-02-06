@@ -2,15 +2,15 @@ const AboutHome = () => {
   return (
     <div className="my-14" data-aos="fade-up">
       <h2 className="text-center text-5xl font-bold py-5">About Us</h2>
-      <div className="lg:flex items-center gap-6 w-3/4 mx-auto pt-8">
-        <div className="lg:w-1/2" data-aos="fade-right">
+      <div className="lg:flex items-center gap-6 px-5 mx-auto pt-8">
+        <div className="lg:w-1/2" data-aos="fade-right" data-aos-duration="2000">
           <img
             className="w-full shadow-xl"
             src="https://i.ibb.co/VmY1pQC/club-2492013-1280.jpg"
             alt=""
           />
         </div>
-        <div className="lg:w-1/2" data-aos="fade-left">
+        <div className="lg:w-1/2" data-aos="fade-left" data-aos-duration="2000">
           <h2 className="text-3xl mt-5 lg:mt-0 font-bold text-[#FF3611] pb-5">
             Our Mission:{" "}
           </h2>
@@ -22,14 +22,14 @@ const AboutHome = () => {
         </div>
       </div>
       <div className="lg:flex items-center flex-row-reverse gap-6 w-3/4 mx-auto pt-8">
-        <div className="lg:w-1/2" data-aos="fade-left">
+        <div className="lg:w-1/2" data-aos="fade-left" data-aos-duration="2000">
           <img
             className="w-full shadow-xl"
             src="https://i.ibb.co/c3WBFzM/police-6828441-1280.jpg"
             alt=""
           />
         </div>
-        <div className="lg:w-1/2" data-aos="fade-right">
+        <div className="lg:w-1/2" data-aos="fade-right" data-aos-duration="2000">
           <h2 className="text-3xl mt-5 lg:mt-0 font-bold text-[#FF3611] pb-5">
             Our Vision:{" "}
           </h2>

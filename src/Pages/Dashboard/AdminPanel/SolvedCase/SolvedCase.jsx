@@ -40,13 +40,13 @@ const SolvedCase = () => {
 
 
   return (
-    <div>
+    <div className="-z-40">
       <h2 className="text-4xl ml-6 pl-5 border-l-8 border-orange-500 mt-5">
         Solved Case
       </h2>
       <div className="divider"></div>
       <div className="overflow-x-auto">
-        <table className="table">
+        <table className="table -z-50">
           {/* head */}
           <thead>
             <tr>

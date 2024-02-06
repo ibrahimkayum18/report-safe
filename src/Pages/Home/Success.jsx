@@ -9,26 +9,27 @@ import { AuthContext } from "../../Providers/AuthProviders";
 const Success = () => {
   const [posts, refetch] = usePosts();
   const axiosPublic = useAxiosPublic();
-  const [reviewMessage, setReviewMessage] = useState('');
-  const {user} = useContext(AuthContext);
+  const [reviewMessage, setReviewMessage] = useState("");
+  const { user } = useContext(AuthContext);
 
-  const handleReview = e => {
+  const handleReview = (e) => {
     e.preventDefault();
     const review = e.target.review.value;
     const email = user.email;
     const name = user.displayName;
     const photo = user.photoURL;
     const reviewInfo = {
-      review, email, name, photo
-    }
-    axiosPublic.post('/reviews', reviewInfo)
-    .then(res => {
-      if(res.data.insertedId){
-        setReviewMessage('Review Send Successfully')
+      review,
+      email,
+      name,
+      photo,
+    };
+    axiosPublic.post("/reviews", reviewInfo).then((res) => {
+      if (res.data.insertedId) {
+        setReviewMessage("Review Send Successfully");
       }
-    })
-
-  }
+    });
+  };
 
   return (
     <div className="my-14 px-5 lg:px-24">
@@ -39,7 +40,7 @@ const Success = () => {
         {posts.map((post) => (
           <div
             key={post._id}
-            className="bg-gray-200 p-7 rounded-lg space-y-2 overflow-hidden"
+            className="bg-gray-200 p-7 rounded-lg space-y-2 overflow-hidden mt-5 md:mt-0"
             data-aos="fade-left"
           >
             <h2>Case name: {post.crimeType}</h2>
@@ -66,7 +67,9 @@ const Success = () => {
                 </form>
                 <div>
                   <form onSubmit={handleReview}>
-                    <h2 className="text-xl">Give your valuable review on {post.crimeType}</h2>
+                    <h2 className="text-xl">
+                      Give your valuable review on {post.crimeType}
+                    </h2>
                     <div data-aos="fade-up">
                       <label className="label">
                         <span>Review</span>
@@ -77,9 +80,13 @@ const Success = () => {
                         placeholder="Review about crime..."
                       ></textarea>
                     </div>
-                    {reviewMessage.length > 1 && <p className="text-green-500 py-4">{reviewMessage}</p>}
+                    {reviewMessage.length > 1 && (
+                      <p className="text-green-500 py-4">{reviewMessage}</p>
+                    )}
                     <div className="my-5 text-center">
-                        <button type="submit" className="btn btn-primary w-full">Post</button>
+                      <button type="submit" className="btn btn-primary w-full">
+                        Post
+                      </button>
                     </div>
                   </form>
                 </div>

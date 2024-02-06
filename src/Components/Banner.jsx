@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
+import crimes from './Crimes.json'
 
 // Import Swiper styles
 import "swiper/css";
@@ -13,9 +14,10 @@ import "./Banner.css";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import { TypeAnimation } from "react-type-animation";
 import { Link } from "react-router-dom";
+import Lottie from "lottie-react";
 const Banner = () => {
   return (
-    <>
+    <div className="overflow-hidden">
       <Swiper
         spaceBetween={30}
         centeredSlides={true}
@@ -42,90 +44,22 @@ const Banner = () => {
               overflow: "hidden",
             }}
           >
-            <div className="bg-[rgba(0,0,0,0.8)] w-full h-full flex items-center justify-start lg:pl-16 ">
-              <div className="text-white text-left">
-                <div>
-                  <TypeAnimation
-                    sequence={[
-                      // Same substring at the start will only be typed once, initially
-                      "We Take Action First For Murder",
-                      1000,
-                      "We Take Action First For Rape",
-                      1000,
-                      "We Take Action First For Robbery",
-                      1000,
-                      "We Take Action First For Accident",
-                      1000,
-                      "We Take Action First For Cybercrime",
-                      1000,
-                    ]}
-                    speed={50}
-                    style={{ fontSize: "3em", fontWeight: "700", borderLeft: '15px solid #FF3611', paddingLeft: '10px'}}
-                    repeat={Infinity}
-                  />
-                </div>
-                <div>
-                  <p className="w-1/2 py-5 font-medium">
+            <div className="bg-[rgba(0,0,0,0.8)] w-full h-screen flex items-center justify-start lg:pl-16 ">
+              <div className="text-white text-left lg:flex justify-center items-center">
+                <div className="px-5 lg:w-1/2">
+                  <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold">Report Crimes Now</h1>
+                  <p className=" py-5 font-medium">
                     "Our website provides a safe and anonymous platform for
                     individuals to report crimes they've experienced. We
                     prioritize user privacy and aim to make the reporting
-                    process simple and effective. Join us in making your
-                    community safer by sharing your experiences and contributing
-                    to a more secure future."
+                    process simple and effective. "
                   </p>
                   <Link to={'/report'}>
                     <button  className="btn btn-primary">Report The Crime Now</button>
                   </Link>
                 </div>
-              </div>
-            </div>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div
-            className="md:h-screen w-full"
-            style={{
-              backgroundImage:
-                "url(https://i.ibb.co/GHNyZPR/psycho-29041-1280.png)",
-              backgroundRepeat: "no-repeat",
-              backgroundSize: "cover",
-              overflow: "hidden",
-            }}
-          >
-            <div className="bg-[rgba(0,0,0,0.6)] w-full h-full flex items-center justify-start lg:pl-16 ">
-              <div className="text-white text-left">
-                <div>
-                  <TypeAnimation
-                    sequence={[
-                      // Same substring at the start will only be typed once, initially
-                      "We Take Action First For Murder",
-                      1000,
-                      "We Take Action First For Rape",
-                      1000,
-                      "We Take Action First For Robbery",
-                      1000,
-                      "We Take Action First For Accident",
-                      1000,
-                      "We Take Action First For Cybercrime",
-                      1000,
-                    ]}
-                    speed={50}
-                    style={{ fontSize: "3em", fontWeight: "700", borderLeft: '15px solid #FF3611', paddingLeft: '10px' }}
-                    repeat={Infinity}
-                  />
-                </div>
-                <div>
-                  <p className="w-1/2 py-5 font-medium">
-                    "Our website provides a safe and anonymous platform for
-                    individuals to report crimes they've experienced. We
-                    prioritize user privacy and aim to make the reporting
-                    process simple and effective. Join us in making your
-                    community safer by sharing your experiences and contributing
-                    to a more secure future."
-                  </p>
-                  <Link to={'/report'}>
-                    <button className="btn btn-primary">Report The Crime Now</button>
-                  </Link>
+                <div className="lg:w-1/2">
+                  <Lottie animationData={crimes} />
                 </div>
               </div>
             </div>
@@ -133,7 +67,7 @@ const Banner = () => {
         </SwiperSlide>
        
       </Swiper>
-    </>
+    </div>
   );
 };
 
